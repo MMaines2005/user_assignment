@@ -1,31 +1,44 @@
 
+from typing import Mapping
 
 
-class BankAccount:
+class User:
+    
+    def __init__(self, username, email_address):
+        self.name = username
+        self.email = email_address
+        self.account_balance = 0
 
-    def __init__(self):
-        self.balance = 0
+    def make_deposit(self, amount):
 
-    def deposit(self):
-        amount = float(input(f"Please enter how much to deposit: "))
-        self.balance += amount
-        print("\n Amount deposited is: ",amount) 
-    def withdraw(self):
-       amount = float(input(f"Enter amount to be withdrawn: "))
-       if self.balance <= amount:
-            self.balance -= amount
-            print("\nAmount left in account is: ", amount)
-       else:
-            print("\n Not enough money!")
+        self.account_balance += amount
+    
+    def make_withdraw(self, amount):
 
-    # def yield_intrest(self):
-       
-    def display(self):
-        print("\nAccount Balance is : ", self.balance)
+        self.account_balance -= amount
+    
+    # def make_transfer(self, amount, User):
 
+    #     self.account_balance -= amount
+    #     amount += 
 
+Michael = User("Michael Luckiest", "Luckiestpet@hi.com")
+Bob = User("Bobby Brown", "bob@hi.com")
+Linda = User("Linda Luckiest", "Linda@hi.com")
 
-tom = BankAccount
+Michael.make_deposit(300)
+Linda.make_deposit(400)
+Bob.make_deposit(1000)
 
-tom.deposit(tom)
-tom.withdraw(tom)
+print(f"Michael your account Balance is :",Michael.account_balance)
+print(f"Linda your account Balance is :",Linda.account_balance)
+print(f"Bob your account Balance is :",Bob.account_balance)
+
+Linda.make_withdraw(100)
+Bob.make_withdraw(200)
+Bob.make_withdraw(100)
+print(f"Linda your account Balance is :",Linda.account_balance)
+print(f"Bob your account Balance is :",Bob.account_balance)
+# Bob.make_transfer(100, Linda)
+# print(f"Linda your account Balance is :",Linda.account_balance)
+# print(f"Bob your account Balance is :",Bob.account_balance)
